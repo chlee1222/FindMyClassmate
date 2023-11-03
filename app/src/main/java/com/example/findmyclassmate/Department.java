@@ -7,7 +7,7 @@ public class Department {
     private String name;
     private List<Course> courses;
 
-    public Department(String name) {
+    public Department(String name, List<Course> marketingDepartmentCourses) {
         this.name = name;
         this.courses = new ArrayList<>();
     }

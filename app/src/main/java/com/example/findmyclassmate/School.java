@@ -7,7 +7,7 @@ public class School {
     private String name;
     private List<Department> departments;
 
-    public School(String name) {
+    public School(String name, List<Department> businessDepartments) {
         this.name = name;
         this.departments = new ArrayList<>();
     }
