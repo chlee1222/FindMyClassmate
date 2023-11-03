@@ -17,6 +17,17 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
+    <View
+        android:id="@+id/background"
+        android:layout_width="443dp"
+        android:layout_height="260dp"
+        android:layout_marginBottom="64dp"
+        android:background="?attr/colorPrimaryVariant"
+        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button_first2"
         android:layout_width="wrap_content"
@@ -40,4 +51,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.462" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="152dp"
+        android:src="@drawable/find_my_classmate"
+        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

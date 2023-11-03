@@ -7,19 +7,67 @@
     android:layout_height="match_parent"
     tools:context=".ViewCourse">
 
-    <!-- Auto layout, variables, and unit scale are not yet supported -->
     <View
-        android:id="@+id/sign_up"
-        android:layout_width="364dp"
-        android:layout_height="135dp"
+        android:id="@+id/background2"
+        android:layout_width="443dp"
+        android:layout_height="260dp"
+        android:layout_marginBottom="64dp"
+        android:background="?attr/colorPrimaryVariant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/spring_2024"
+        android:layout_width="176dp"
+        android:layout_height="19dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:gravity="top"
+        android:text="@string/spring_2024"
+        android:textAppearance="@style/spring_2024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:src="@drawable/find_my_classmate"
+        app:layout_constraintBottom_toTopOf="@+id/spring_2024"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/background2"
+        app:layout_constraintVertical_bias="1.0" />
 
+    <Spinner
+        android:id="@+id/schoolSpinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spring_2024"
+        app:layout_constraintVertical_bias="0.079" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Viterbi School of Engineering"
+        app:layout_constraintBottom_toBottomOf="@+id/schoolSpinner"
+        app:layout_constraintEnd_toEndOf="@+id/schoolSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/schoolSpinner" />
 
-
+    <!--        app:layout_constraintBottom_toTopOf="@+id/button_first"-->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

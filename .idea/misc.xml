@@ -4,11 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.213768115942029" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.38862915039062496" />
-        <entry key="app/src/main/res/layout/activity_view_course.xml" value="0.17864583333333334" />
-        <entry key="app/src/main/res/layout/content_main.xml" value="0.13772481282552074" />
-        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.20252075195312508" />
-        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.11548913043478261" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15575866699218754" />
+        <entry key="app/src/main/res/layout/activity_view_course.xml" value="0.31684112548828136" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.11603902180989573" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.18051293414572012" />
         <entry key="app/src/main/res/layout/rectangle_1.xml" value="0.17604166666666668" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.3515625" />
       </map>
