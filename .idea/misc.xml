@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15575866699218754" />
-        <entry key="app/src/main/res/layout/activity_view_course.xml" value="0.31684112548828136" />
+        <entry key="app/src/main/res/layout/activity_view_course.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.11603902180989573" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.18051293414572012" />
