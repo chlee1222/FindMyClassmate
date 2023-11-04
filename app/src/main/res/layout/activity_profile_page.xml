@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <View
+        android:id="@+id/background2"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="64dp"
+        android:background="?attr/colorPrimaryVariant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Welcome, Tommy Trojan."
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/welcomeText"
+        android:src="@drawable/Ellipse_1"
+        android:padding="3dp" />
+
+    <TextView
+        android:id="@+id/usernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-1dp"
+        android:text="Tommy Trojan"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/userRoleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/usernameText"
+        android:text="Undergraduate"
+        android:textColor="#ECCA00"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/pencilIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignTop="@id/profileImage"
+        android:layout_marginStart="-18dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="137dp"
+        android:layout_toEndOf="@id/profileImage"
+        android:clickable="true"
+        android:contentDescription="Edit Profile"
+        android:focusable="true"
+        android:src="@drawable/pencil" />
+
+    <ImageView
+        android:id="@+id/editIcon"
+        android:layout_width="33dp"
+        android:layout_height="26dp"
+        android:layout_alignTop="@id/profileImage"
+        android:layout_marginStart="-37dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="241dp"
+        android:layout_toEndOf="@id/profileImage"
+        android:clickable="true"
+        android:contentDescription="Edit Profile"
+        android:focusable="true"
+        android:src="@drawable/edit" />
+
+</RelativeLayout>
