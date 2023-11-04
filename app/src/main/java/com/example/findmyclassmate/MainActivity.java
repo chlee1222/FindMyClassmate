@@ -1,5 +1,6 @@
 package com.example.findmyclassmate;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -18,6 +19,7 @@ import com.example.findmyclassmate.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,31 +51,42 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Course course1 = new Course("Digital Marketing", "MKT101", "Fall 2023", 30, 10, "9:00 AM - 10:30 AM", "Mon, Wed, Fri", "Room 101", "Prof. Smith", "Elective");
-        Course course2 = new Course("Social Media Strategy", "MKT102", "Fall 2023", 25, 15, "11:00 AM - 12:30 PM", "Tue, Thu", "Room 102", "Prof. Johnson", "Elective");
-        Course course3 = new Course("Market Research and Analysis", "MKT103", "Fall 2023", 35, 20, "2:00 PM - 3:30 PM", "Mon, Wed", "Room 103", "Prof. Davis", "Core");
-        Course course4 = new Course("Consumer Behavior", "MKT104", "Fall 2023", 30, 10, "4:00 PM - 5:30 PM", "Tue, Thu", "Room 104", "Prof. Wilson", "Elective");
-        Course course5 = new Course("Advertising and Promotion", "MKT105", "Fall 2023", 30, 20, "10:00 AM - 11:30 AM", "Mon, Wed", "Room 105", "Prof. Brown", "Core");
-        Course course6 = new Course("Marketing Management", "MKT106", "Fall 2023", 40, 25, "1:00 PM - 2:30 PM", "Tue, Thu", "Room 106", "Prof. Lee", "Core");
+//        Course course1 = new Course("Digital Marketing", "MKT101", "Fall 2023", 30, 10, "9:00 AM - 10:30 AM", "Mon, Wed, Fri", "Room 101", "Prof. Smith", "Elective");
+//        Course course2 = new Course("Social Media Strategy", "MKT102", "Fall 2023", 25, 15, "11:00 AM - 12:30 PM", "Tue, Thu", "Room 102", "Prof. Johnson", "Elective");
+//        Course course3 = new Course("Market Research and Analysis", "MKT103", "Fall 2023", 35, 20, "2:00 PM - 3:30 PM", "Mon, Wed", "Room 103", "Prof. Davis", "Core");
+//        Course course4 = new Course("Consumer Behavior", "MKT104", "Fall 2023", 30, 10, "4:00 PM - 5:30 PM", "Tue, Thu", "Room 104", "Prof. Wilson", "Elective");
+//        Course course5 = new Course("Advertising and Promotion", "MKT105", "Fall 2023", 30, 20, "10:00 AM - 11:30 AM", "Mon, Wed", "Room 105", "Prof. Brown", "Core");
+//        Course course6 = new Course("Marketing Management", "MKT106", "Fall 2023", 40, 25, "1:00 PM - 2:30 PM", "Tue, Thu", "Room 106", "Prof. Lee", "Core");
+//
+//
+//
+//        // Create a list of Course objects for the Marketing Department
+//        List<Course> marketingDepartmentCourses = new ArrayList<>();
+//        marketingDepartmentCourses.add(course1);
+//        marketingDepartmentCourses.add(course2);
+//        marketingDepartmentCourses.add(course3);
+//        marketingDepartmentCourses.add(course4);
+//        marketingDepartmentCourses.add(course5);
+//        marketingDepartmentCourses.add(course6);
+//
+//        // Create the Marketing Department
+//        Department marketingDepartment = new Department("Marketing Department", marketingDepartmentCourses);
+//
+//        // Create a list of Department objects for the School of Business
+//        List<Department> businessDepartments = new ArrayList<>();
+//        businessDepartments.add(marketingDepartment);
+//
+//        // Create the School of Business
+//        School schoolOfBusiness = new School("School of Business", businessDepartments);
+//
+//        List<School> schoolArray = new ArrayList<School>();
+//        schoolArray.add(schoolOfBusiness);
 
-        // Create a list of Course objects for the Marketing Department
-        List<Course> marketingDepartmentCourses = new ArrayList<>();
-        marketingDepartmentCourses.add(course1);
-        marketingDepartmentCourses.add(course2);
-        marketingDepartmentCourses.add(course3);
-        marketingDepartmentCourses.add(course4);
-        marketingDepartmentCourses.add(course5);
-        marketingDepartmentCourses.add(course6);
-
-        // Create the Marketing Department
-        Department marketingDepartment = new Department("Marketing Department", marketingDepartmentCourses);
-
-        // Create a list of Department objects for the School of Business
-        List<Department> businessDepartments = new ArrayList<>();
-        businessDepartments.add(marketingDepartment);
-
-        // Create the School of Business
-        School schoolOfBusiness = new School("School of Business", businessDepartments);
+//        Intent intent = new Intent(this, ViewCourse.class);
+//        Bundle args = new Bundle();
+//        args.putSerializable("ARRAYLIST",(Serializable)schoolArray);
+//        intent.putExtra("BUNDLE",args);
+//        startActivity(intent);
     }
 
     @Override

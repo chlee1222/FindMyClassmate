@@ -1,6 +1,8 @@
 package com.example.findmyclassmate;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
     private String cName;
     private String section;
     private String session;
