@@ -1,13 +1,17 @@
 package com.example.findmyclassmate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +22,25 @@ public class ViewCourse extends AppCompatActivity {
     ArrayAdapter<Course> courseAdapter;
     DepartmentArrayAdapter departmentAdapter;
     List<School> schoolArray;
+    ConstraintLayout courseDetailsLayout;
+    TextView courseNameTextView, courseCodeTextView;
+    Button addCourseButton, reviewCourseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_course);
+
+        // Initialize Course Details views
+        courseDetailsLayout = findViewById(R.id.courseDetailsLayout);
+        courseNameTextView = findViewById(R.id.courseNameTextView);
+        courseCodeTextView = findViewById(R.id.courseCodeTextView);
+        addCourseButton = findViewById(R.id.addCourseButton);
+        reviewCourseButton = findViewById(R.id.reviewCourseButton);
+
+        // Set the initial visibility of the custom layout to GONE
+        courseDetailsLayout.setVisibility(View.GONE);
+
         // Inside the onItemSelected method
         Log.d("ViewCourse", "test");
         // Hard code instances of Course
@@ -113,5 +131,49 @@ public class ViewCourse extends AppCompatActivity {
                 // Do nothing here
             }
         });
+
+        // Handle Course selection
+        courseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Handle the selection of a Course
+                Course selectedCourse = courseAdapter.getItem(position);
+
+                // Populate the Course details in the custom layout
+                populateCourseDetails(selectedCourse);
+
+                // Make the custom layout visible
+                courseDetailsLayout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Do nothing here
+            }
+        });
+
+        // Set click listeners for the buttons
+        addCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add Course button action
+                // Implement the logic for adding a course
+            }
+        });
+
+        reviewCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Review Course button action
+                // Implement the logic for reviewing a course
+            }
+        });
     }
+    private void populateCourseDetails(Course course) {
+        courseNameTextView.setText("section: " + course.getSection());
+        courseCodeTextView.setText("session: " + course.getSession());
+        // Set other TextViews with Course details
+    }
+
+
 }
