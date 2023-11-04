@@ -8,9 +8,9 @@ public class School implements Serializable {
     private String name;
     private List<Department> departments;
 
-    public School(String name, List<Department> businessDepartments) {
+    public School(String name, List<Department> Departments) {
         this.name = name;
-        this.departments = new ArrayList<>();
+        this.departments = Departments;
     }
 
     public String getName() {

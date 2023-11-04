@@ -28,6 +28,10 @@ public class Course implements Serializable {
         this.creditType = creditType;
     }
 
+    @Override
+    public String toString() {
+        return cName;
+    }
     public String getcName() {
         return cName;
     }
