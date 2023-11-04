@@ -170,8 +170,8 @@ public class ViewCourse extends AppCompatActivity {
         });
     }
     private void populateCourseDetails(Course course) {
-        courseNameTextView.setText("section: " + course.getSection());
-        courseCodeTextView.setText("session: " + course.getSession());
+//        courseNameTextView.setText("section: " + course.getSection());
+//        courseCodeTextView.setText("session: " + course.getSession());
         // Set other TextViews with Course details
     }
 
