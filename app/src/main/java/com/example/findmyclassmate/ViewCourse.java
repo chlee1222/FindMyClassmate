@@ -44,15 +44,18 @@ public class ViewCourse extends AppCompatActivity {
 
         // Create the Marketing Department
         Department marketingDepartment = new Department("Marketing Department", marketingDepartmentCourses);
-
+        Department marketing2Department = new Department("Test Department", marketingDepartmentCourses);
         // Create a list of Department objects for the School of Business
         List<Department> businessDepartments = new ArrayList<>();
         businessDepartments.add(marketingDepartment);
         Log.d("ViewCourse", businessDepartments.get(0).getName());
 
+
+        List<Department> business2Departments = new ArrayList<>();
+        business2Departments.add(marketing2Department);
         // Create the School of Business
         School schoolOfBusiness = new School("School of Business", businessDepartments);
-        School schoolOfEngineering = new School("School of Engineering", businessDepartments);
+        School schoolOfEngineering = new School("School of Engineering", business2Departments);
         // Create a list of School objects and add the School of Business
         schoolArray = new ArrayList<>();
         schoolArray.add(schoolOfBusiness);
