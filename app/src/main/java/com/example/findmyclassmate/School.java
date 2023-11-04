@@ -1,15 +1,16 @@
 package com.example.findmyclassmate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class School {
+public class School implements Serializable {
     private String name;
     private List<Department> departments;
 
-    public School(String name, List<Department> businessDepartments) {
+    public School(String name, List<Department> Departments) {
         this.name = name;
-        this.departments = new ArrayList<>();
+        this.departments = Departments;
     }
 
     public String getName() {
@@ -30,5 +31,10 @@ public class School {
 
     public void addDepartment(Department department) {
         departments.add(department);
+    }
+
+    @Override
+    public String toString() {
+        return name; // Return the school name to be displayed in the Spinner
     }
 }

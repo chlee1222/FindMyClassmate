@@ -1,15 +1,19 @@
 package com.example.findmyclassmate;
 
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Department {
+public class Department implements Serializable {
     private String name;
     private List<Course> courses;
 
-    public Department(String name, List<Course> marketingDepartmentCourses) {
+    public Department(String name, List<Course> Courses) {
         this.name = name;
-        this.courses = new ArrayList<>();
+        this.courses = Courses ;
     }
 
     public String getName() {
@@ -31,4 +35,10 @@ public class Department {
     public void addCourse(Course course) {
         courses.add(course);
     }
+
+    public String toString() {
+        return name; // Return the department name for display in the Spinner
+    }
+
 }
+

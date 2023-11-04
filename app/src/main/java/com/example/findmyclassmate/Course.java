@@ -1,6 +1,8 @@
 package com.example.findmyclassmate;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
     private String cName;
     private String section;
     private String session;
@@ -26,6 +28,10 @@ public class Course {
         this.creditType = creditType;
     }
 
+    @Override
+    public String toString() {
+        return cName;
+    }
     public String getcName() {
         return cName;
     }
