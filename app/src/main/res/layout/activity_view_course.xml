@@ -93,7 +93,7 @@
             android:id="@+id/courseSection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="4dp"
             android:text="Section"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +103,7 @@
             android:id="@+id/courseType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="28dp"
             android:text="Type"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/courseSection" />
@@ -112,16 +112,16 @@
             android:id="@+id/courseRegistered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="28dp"
             android:text="Registed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/courseType" />
 
         <TextView
-            android:id="@+id/couseTime"
+            android:id="@+id/courseTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="28dp"
             android:text="Time:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/courseRegistered" />
@@ -130,16 +130,16 @@
             android:id="@+id/courseLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="28dp"
             android:text="Location:"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/couseTime" />
+            app:layout_constraintTop_toBottomOf="@+id/courseTime" />
 
         <TextView
             android:id="@+id/courseInstructor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="28dp"
             android:text="Instructor:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/courseLocation" />
@@ -148,7 +148,7 @@
             android:id="@+id/courseRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="28dp"
             android:text="Rating:"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -159,7 +159,7 @@
             android:id="@+id/courseSession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="136dp"
+            android:layout_marginStart="92dp"
             android:layout_marginTop="4dp"
             android:text="Session:"
             app:layout_constraintStart_toEndOf="@+id/courseSection"
@@ -169,7 +169,7 @@
             android:id="@+id/courseCredit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="152dp"
+            android:layout_marginStart="112dp"
             android:text="Credit:"
             app:layout_constraintStart_toEndOf="@+id/courseType"
             app:layout_constraintTop_toBottomOf="@+id/courseSession" />
@@ -178,22 +178,24 @@
             android:id="@+id/courseDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="148dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="20dp"
             android:text="Days:"
-            app:layout_constraintStart_toEndOf="@+id/couseTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/courseTime"
             app:layout_constraintTop_toBottomOf="@+id/courseCredit" />
 
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
+            android:layout_marginStart="56dp"
             android:text="Add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/courseRating"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.09" />
 
         <Button
             android:id="@+id/reviewButton"
