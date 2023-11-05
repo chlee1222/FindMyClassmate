@@ -24,7 +24,8 @@ public class ViewCourse extends AppCompatActivity {
     DepartmentArrayAdapter departmentAdapter;
     List<School> schoolArray;
     ConstraintLayout courseDetailsLayout;
-    TextView courseSection, courseSession;
+    TextView courseSection, courseSession, courseType, courseRegister, courseTime;
+    TextView courseLocation, courseInstructor, courseRating, courseCredit, courseDays;
     Button addButton, reviewButton;
 
 
@@ -37,12 +38,12 @@ public class ViewCourse extends AppCompatActivity {
         // Inside the onItemSelected method
         Log.d("ViewCourse", "test");
         // Hard code instances of Course
-        Course course1 = new Course("Digital Marketing", "MKT101", "Fall 2023", 30, 10, "9:00 AM - 10:30 AM", "Mon, Wed, Fri", "Room 101", "Prof. Smith", "Elective");
-        Course course2 = new Course("Social Media Strategy", "MKT102", "Fall 2023", 25, 15, "11:00 AM - 12:30 PM", "Tue, Thu", "Room 102", "Prof. Johnson", "Elective");
-        Course course3 = new Course("Market Research and Analysis", "MKT103", "Fall 2023", 35, 20, "2:00 PM - 3:30 PM", "Mon, Wed", "Room 103", "Prof. Davis", "Core");
-        Course course4 = new Course("Consumer Behavior", "MKT104", "Fall 2023", 30, 10, "4:00 PM - 5:30 PM", "Tue, Thu", "Room 104", "Prof. Wilson", "Elective");
-        Course course5 = new Course("Advertising and Promotion", "MKT105", "Fall 2023", 30, 20, "10:00 AM - 11:30 AM", "Mon, Wed", "Room 105", "Prof. Brown", "Core");
-        Course course6 = new Course("Marketing Management", "MKT106", "Fall 2023", 40, 25, "1:00 PM - 2:30 PM", "Tue, Thu", "Room 106", "Prof. Lee", "Core");
+        Course course1 = new Course("Digital Marketing", "MKT101", "Fall 2023", 30, 10, "9:00 AM - 10:30 AM", "Mon, Wed, Fri", "Room 101", "Prof. Smith", "Elective", "4.0");
+        Course course2 = new Course("Social Media Strategy", "MKT102", "Fall 2023", 25, 15, "11:00 AM - 12:30 PM", "Tue, Thu", "Room 102", "Prof. Johnson", "Elective","4.0");
+        Course course3 = new Course("Market Research and Analysis", "MKT103", "Fall 2023", 35, 20, "2:00 PM - 3:30 PM", "Mon, Wed", "Room 103", "Prof. Davis", "Core","4.0");
+        Course course4 = new Course("Consumer Behavior", "MKT104", "Fall 2023", 30, 10, "4:00 PM - 5:30 PM", "Tue, Thu", "Room 104", "Prof. Wilson", "Elective","4.0");
+        Course course5 = new Course("Advertising and Promotion", "MKT105", "Fall 2023", 30, 20, "10:00 AM - 11:30 AM", "Mon, Wed", "Room 105", "Prof. Brown", "Core","4.0");
+        Course course6 = new Course("Marketing Management", "MKT106", "Fall 2023", 40, 25, "1:00 PM - 2:30 PM", "Tue, Thu", "Room 106", "Prof. Lee", "Core","4.0");
 
         // Create a list of Course objects for the Marketing Department
         List<Course> marketingDepartmentCourses = new ArrayList<>();
@@ -164,6 +165,9 @@ public class ViewCourse extends AppCompatActivity {
 
     private void populateCourseDetails(Course course) {
         courseSection.setText("Section: " + course.getSection());
+        courseType.setText("Type: "+ course.getType());
+        courseRegister.setText("Registered: " + course.getRegistered() + " of" + course.getSize());
+        courseTime.setText("Time: " + course.getTime());
         // Populate other TextViews with course details
     }
 

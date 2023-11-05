@@ -12,10 +12,11 @@ public class Course implements Serializable {
     private String days;
     private String location;
     private String professor;
-    private String creditType;
+    private String type;
+    private String credit;
     // need to include rating >>
 
-    public Course(String cName, String section, String session, int size, int registered, String time, String days, String location, String professor, String creditType) {
+    public Course(String cName, String section, String session, int size, int registered, String time, String days, String location, String professor, String creditType, String credit) {
         this.cName = cName;
         this.section = section;
         this.session = session;
@@ -25,12 +26,22 @@ public class Course implements Serializable {
         this.days = days;
         this.location = location;
         this.professor = professor;
-        this.creditType = creditType;
+        this.type = creditType;
+        this.credit = credit;
+
     }
 
     @Override
     public String toString() {
         return cName;
+    }
+
+    public String getCredit() {
+        return credit;
+    }
+
+    public void setCredit(String credit) {
+        this.credit = credit;
     }
     public String getcName() {
         return cName;
@@ -104,11 +115,11 @@ public class Course implements Serializable {
         this.professor = professor;
     }
 
-    public String getCreditType() {
-        return creditType;
+    public String getType() {
+        return type;
     }
 
-    public void setCreditType(String creditType) {
-        this.creditType = creditType;
+    public void setType(String Type) {
+        this.type= Type;
     }
 }
