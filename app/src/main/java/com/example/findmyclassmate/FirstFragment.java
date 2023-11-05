@@ -1,5 +1,6 @@
 package com.example.findmyclassmate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,23 @@ public class FirstFragment extends Fragment {
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+//                NavHostFragment.findNavController(FirstFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                Intent i = new Intent(getActivity(), Login.class);
+//                Intent intent = new Intent(getActivity(), mFragmentFavorite.class);
+//                startActivity(intent);
+                startActivity(i);
+            }
+        });
+        binding.buttonFirst2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                NavHostFragment.findNavController(FirstFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                Intent j = new Intent(getActivity(), Registration.class);
+//                Intent intent = new Intent(getActivity(), mFragmentFavorite.class);
+//                startActivity(intent);
+                startActivity(j);
             }
         });
     }
