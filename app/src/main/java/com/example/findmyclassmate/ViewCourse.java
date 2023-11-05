@@ -23,15 +23,15 @@ public class ViewCourse extends AppCompatActivity {
     ArrayAdapter<Course> courseAdapter;
     DepartmentArrayAdapter departmentAdapter;
     List<School> schoolArray;
+    ConstraintLayout courseDetailsLayout;
+    TextView courseSection, courseSession;
+    Button addButton, reviewButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_course);
-        ConstraintLayout courseDetailsLayout;
-        TextView courseSection, courseSession;
-        Button addButton, reviewButton;
 
 
         // Inside the onItemSelected method
@@ -163,7 +163,7 @@ public class ViewCourse extends AppCompatActivity {
     }
 
     private void populateCourseDetails(Course course) {
-//        view.setText("Section: " + course.getSection());
+        courseSection.setText("Section: " + course.getSection());
         // Populate other TextViews with course details
     }
 

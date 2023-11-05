@@ -73,9 +73,9 @@ public class Registration extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     // If sign in fails, display a message to the user.
-//                                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(Registration.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    Log.w("createUserWithEmail:failure", task.getException());
+//                                    Toast.makeText(Registration.this, "Authentication failed.",
+//                                            Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
