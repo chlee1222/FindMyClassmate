@@ -1,0 +1,115 @@
+{
+  "name": "indiv_c",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "hxXqLP6IzMpNfRJXjcgTwD",
+    "node": "62:5",
+    "version": "4441067513",
+    "component-id": "fe54c5fa7d78984e691665549de998af04a1ba12"
+  },
+  "default": "IndivC",
+  "documentation": "individual class to expand\n",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 4"
+      },
+      {
+        "type": "text",
+        "id": "Dornsift College of Letters, arts, and Sciences"
+      }
+    ],
+    "modes": {
+      "IndivC": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "Rectangle 4",
+              "Dornsift College of Letters, arts, and Sciences"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "Rectangle 4",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "-0.5"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "rectangle_4.svg"
+          },
+          {
+            "id": "Dornsift College of Letters, arts, and Sciences",
+            "margin": {
+              "left": "31.0",
+              "top": "9.0",
+              "right": "37.0",
+              "bottom": "9.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "240.0",
+              "saturation": "0.00694444444444442",
+              "value": "0.5647058823529412"
+            },
+            "text-content": "Dornsift College of Letters, arts, and Sciences ",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "10.0",
+            "letter-spacing": "-0.2",
+            "line-height": "1.172999954223633",
+            "typeface": "Work Sans",
+            "case": "title"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "IndivC",
+      "size": {
+        "width": 289.0,
+        "height": 30.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

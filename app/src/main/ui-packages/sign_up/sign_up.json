@@ -1,0 +1,151 @@
+{
+  "name": "sign_up",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "hxXqLP6IzMpNfRJXjcgTwD",
+    "node": "57:2",
+    "version": "4441067513",
+    "component-id": "6892a62d123888aa5aca2bffd4c2947899504142"
+  },
+  "default": "SIGN UP",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 1"
+      },
+      {
+        "type": "text",
+        "id": "FIND MY CLASSMATE"
+      },
+      {
+        "type": "text",
+        "id": "Welcome, Tommy Trojan."
+      }
+    ],
+    "modes": {
+      "SIGN UP": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "Rectangle 1",
+              "FIND MY CLASSMATE",
+              "Welcome, Tommy Trojan."
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "Rectangle 1",
+            "border-radius": "7.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "4.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "0.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "rectangle_1.svg"
+          },
+          {
+            "id": "FIND MY CLASSMATE",
+            "margin": {
+              "left": "70.0",
+              "top": "57.0",
+              "right": "69.0",
+              "bottom": "54.93505859375"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "51.20689655172414",
+              "saturation": "0.4549019607843138",
+              "value": "1.0"
+            },
+            "text-content": "FIND MY CLASSMATE",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "24.0",
+            "letter-spacing": "-0.48",
+            "typeface": "Proxima Nova"
+          },
+          {
+            "id": "Welcome, Tommy Trojan.",
+            "margin": {
+              "left": "16.0",
+              "top": "10.0",
+              "right": "193.0",
+              "bottom": "110.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.8509803921568627"
+            },
+            "text-content": "Welcome, Tommy Trojan.",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "13.0",
+            "letter-spacing": "-0.26",
+            "line-height": "1.1729999688955455",
+            "typeface": "Work Sans"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "SIGN UP",
+      "size": {
+        "width": 364.0,
+        "height": 135.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
