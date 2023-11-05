@@ -30,8 +30,8 @@ public class ViewCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_course);
         ConstraintLayout courseDetailsLayout;
-        TextView courseNameTextView, courseCodeTextView;
-        Button addCourseButton, reviewCourseButton;
+        TextView courseSection, courseSession;
+        Button addButton, reviewButton;
 
 
         // Inside the onItemSelected method
@@ -124,57 +124,50 @@ public class ViewCourse extends AppCompatActivity {
                 // Do nothing here
             }
         });
+        addButton = findViewById(R.id.addButton);
+        reviewButton = findViewById(R.id.reviewButton);
+        courseSection = findViewById(R.id.courseSection);
+        courseSession = findViewById(R.id.courseSession);
 
-        // Initialize Course Details views
-        courseDetailsLayout = findViewById(R.id.courseDetails);
-        courseNameTextView = findViewById(R.id.courseNameTextView);
-        courseCodeTextView = findViewById(R.id.courseCodeTextView);
-        addCourseButton = findViewById(R.id.addCourseButton);
-        reviewCourseButton = findViewById(R.id.reviewCourseButton);
-
-        // Set the initial visibility of the custom layout to GONE
-        // Handle Course selection
+        // Set an item selection listener for the courseSpinner
         courseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Handle the selection of a Course
                 Course selectedCourse = courseAdapter.getItem(position);
-
-                // Populate the Course details in the custom layout
+                // Populate course details
                 populateCourseDetails(selectedCourse);
-
-                // Make the custom layout visible
-                courseDetailsLayout.setVisibility(View.VISIBLE);
+                // Make the courseDetailsLayout visible
+                showCourseDetails();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // Do nothing here
+                // Handle nothing selected
             }
         });
 
         // Set click listeners for the buttons
-        addCourseButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Add Course button action
                 // Implement the logic for adding a course
             }
         });
 
-        reviewCourseButton.setOnClickListener(new View.OnClickListener() {
+        reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Review Course button action
                 // Implement the logic for reviewing a course
             }
         });
     }
+
     private void populateCourseDetails(Course course) {
-//        courseNameTextView.setText("section: " + course.getSection());
-//        courseCodeTextView.setText("session: " + course.getSession());
-        // Set other TextViews with Course details
+//        view.setText("Section: " + course.getSection());
+        // Populate other TextViews with course details
     }
 
-
+    private void showCourseDetails() {
+        findViewById(R.id.courseDetails).setVisibility(View.VISIBLE);
+    }
 }
