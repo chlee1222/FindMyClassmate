@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.example.findmyclassmate.R;
 
 public class ViewCourse extends AppCompatActivity {
     Spinner schoolSpinner, departmentSpinner, courseSpinner;
@@ -22,24 +23,16 @@ public class ViewCourse extends AppCompatActivity {
     ArrayAdapter<Course> courseAdapter;
     DepartmentArrayAdapter departmentAdapter;
     List<School> schoolArray;
-    ConstraintLayout courseDetailsLayout;
-    TextView courseNameTextView, courseCodeTextView;
-    Button addCourseButton, reviewCourseButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_course);
+        ConstraintLayout courseDetailsLayout;
+        TextView courseNameTextView, courseCodeTextView;
+        Button addCourseButton, reviewCourseButton;
 
-        // Initialize Course Details views
-        courseDetailsLayout = findViewById(R.id.courseDetailsLayout);
-        courseNameTextView = findViewById(R.id.courseNameTextView);
-        courseCodeTextView = findViewById(R.id.courseCodeTextView);
-        addCourseButton = findViewById(R.id.addCourseButton);
-        reviewCourseButton = findViewById(R.id.reviewCourseButton);
-
-        // Set the initial visibility of the custom layout to GONE
-        courseDetailsLayout.setVisibility(View.GONE);
 
         // Inside the onItemSelected method
         Log.d("ViewCourse", "test");
@@ -89,12 +82,12 @@ public class ViewCourse extends AppCompatActivity {
         schoolSpinner.setAdapter(schoolAdapter);
 
         // Create an adapter for the Department Spinner
-        departmentAdapter = new DepartmentArrayAdapter(this, R.layout.spinner_dropdown_item, new ArrayList<Department>());
+        departmentAdapter = new DepartmentArrayAdapter(this, R.layout.spinner_dropdown_item, new ArrayList<>());
         departmentAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         departmentSpinner.setAdapter(departmentAdapter);
 
         // Create an adapter for the Course Spinner
-        courseAdapter = new ArrayAdapter<Course>(this, R.layout.spinner_item, new ArrayList<Course>());
+        courseAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, new ArrayList<>());
         courseAdapter.setDropDownViewResource(R.layout.spinner_item);
         courseSpinner.setAdapter(courseAdapter);
 
@@ -132,6 +125,14 @@ public class ViewCourse extends AppCompatActivity {
             }
         });
 
+        // Initialize Course Details views
+        courseDetailsLayout = findViewById(R.id.courseDetails);
+        courseNameTextView = findViewById(R.id.courseNameTextView);
+        courseCodeTextView = findViewById(R.id.courseCodeTextView);
+        addCourseButton = findViewById(R.id.addCourseButton);
+        reviewCourseButton = findViewById(R.id.reviewCourseButton);
+
+        // Set the initial visibility of the custom layout to GONE
         // Handle Course selection
         courseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
