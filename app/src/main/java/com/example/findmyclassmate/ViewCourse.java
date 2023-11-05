@@ -166,6 +166,10 @@ public class ViewCourse extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Implement the logic for reviewing a course
+                Course selectedCourse = (Course) courseSpinner.getSelectedItem(); // Get the selected course
+                Intent reviewIntent = new Intent(ViewCourse.this, rateClass.class);
+                reviewIntent.putExtra("course", selectedCourse); // Pass the selected course to the ReviewCourse activity
+                startActivity(reviewIntent);
             }
         });
     }

@@ -19,6 +19,8 @@ public class rateClass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rate_class);
+        Course selectedCourse = (Course) getIntent().getSerializableExtra("course");
+
         workloadEditText = findViewById(R.id.workloadEditText);
         scoreEditText = findViewById(R.id.score);
         attendanceCheckBox = findViewById(R.id.attendanceCheckBox);
