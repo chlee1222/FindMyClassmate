@@ -6,27 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".rateClass">
 
-    <ScrollView
+
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+            android:visibility="invisible" />
 
             <EditText
                 android:id="@+id/workloadEditText"
                 android:layout_width="match_parent"
-                android:layout_height="393dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="Workload"
+                android:hint="Comment on course workload."
                 android:inputType="textMultiLine" />
+
+            <EditText
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Rate class from 1 - 5"
+                android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/attendanceCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attendance Checked"/>
+
+            <CheckBox
+                android:id="@+id/lateHomeworkCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Late Homework Allowed"/>
+
+            <EditText
+                android:id="@+id/commentsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Other Comments"/>
+
+            <Button
+                android:id="@+id/submitReviewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit Review"/>
         </LinearLayout>
-    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
