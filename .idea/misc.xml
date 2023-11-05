@@ -6,11 +6,15 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15575866699218754" />
+        <entry key="app/src/main/res/layout/activity_review_classes.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_review_course.xml" value="0.21768086751302085" />
         <entry key="app/src/main/res/layout/activity_view_course.xml" value="0.38069000244140627" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.11603902180989573" />
+        <entry key="app/src/main/res/layout/content_review_course.xml" value="0.4091267903645834" />
         <entry key="app/src/main/res/layout/course_details_layout.xml" value="0.13004455566406245" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.18051293414572012" />
+        <entry key="app/src/main/res/layout/rate_class.xml" value="0.16249593098958334" />
         <entry key="app/src/main/res/layout/rectangle_1.xml" value="0.17604166666666668" />
         <entry key="app/src/main/res/layout/spinner_dropdown_item.xml" value="0.1897644927536232" />
         <entry key="app/src/main/res/layout/spinner_item.xml" value="0.1897644927536232" />

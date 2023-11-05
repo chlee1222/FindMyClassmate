@@ -1,6 +1,7 @@
 package com.example.findmyclassmate;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Course implements Serializable {
     private String cName;
@@ -14,6 +15,7 @@ public class Course implements Serializable {
     private String professor;
     private String type;
     private String credit;
+    private List<Review> Reviews;
     // need to include rating >>
 
     public Course(String cName, String section, String session, int size, int registered, String time, String days, String location, String professor, String creditType, String credit) {

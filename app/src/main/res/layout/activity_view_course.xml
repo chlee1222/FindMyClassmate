@@ -169,7 +169,7 @@
             android:id="@+id/courseCredit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="112dp"
+            android:layout_marginStart="108dp"
             android:text="Credit:"
             app:layout_constraintStart_toEndOf="@+id/courseType"
             app:layout_constraintTop_toBottomOf="@+id/courseSession" />
