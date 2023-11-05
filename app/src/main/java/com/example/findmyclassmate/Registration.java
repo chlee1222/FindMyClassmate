@@ -61,21 +61,24 @@ public class Registration extends AppCompatActivity {
                     Toast.makeText(Registration.this, "Enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                Log.d("hello", "test");
+
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d("hello", "test2");
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
 //                                    Log.d(TAG, "createUserWithEmail:success");
                                     Toast.makeText(Registration.this, "Account Created.",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    // If sign in fails, display a message to the user.
-//                                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(Registration.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+//                                     If sign in fails, display a message to the user.
+                                    Log.w("createUserWithEmail:failure", task.getException());
+//                                    Toast.makeText(Registration.this, "Authentication failed.",
+//                                            Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
