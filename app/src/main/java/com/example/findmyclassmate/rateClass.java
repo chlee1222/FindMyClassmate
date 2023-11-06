@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class rateClass extends AppCompatActivity {
     private EditText workloadEditText;
@@ -41,6 +42,7 @@ public class rateClass extends AppCompatActivity {
                 Review review = new Review(comments, score, attendanceChecked, lateHomeworkAllowed);
                 // Save the review to a database or other storage mechanism
                 // You need to implement a storage solution for reviews
+//                Toast.makeText(rateClass.this, "Review Submitted", Toast.LENGTH_SHORT).show();
             }
         });
     }
