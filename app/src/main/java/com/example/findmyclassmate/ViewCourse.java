@@ -54,24 +54,81 @@ public class ViewCourse extends AppCompatActivity {
         marketingDepartmentCourses.add(course5);
         marketingDepartmentCourses.add(course6);
 
+        //rest
+        // Create courses for Department 2 (Finance)
+        Course financeCourse1 = new Course("Investment Banking", "FIN201", "Fall 2023", 30, 10, "9:00 AM - 10:30 AM", "MWF", "Room 201", "Prof. Anderson", "Core", "4.0");
+        Course financeCourse2 = new Course("Financial Derivatives", "FIN202", "Fall 2023", 25, 15, "11:00 AM - 12:30 PM", "TTh", "Room 202", "Prof. Baker", "Elective", "4.0");
+        Course financeCourse3 = new Course("Corporate Finance", "FIN203", "Fall 2023", 35, 20, "2:00 PM - 3:30 PM", "MW", "Room 203", "Prof. Clark", "Core", "4.0");
+        Course financeCourse4 = new Course("Risk Management", "FIN204", "Fall 2023", 30, 10, "4:00 PM - 5:30 PM", "TTh", "Room 204", "Prof. Davis", "Elective", "4.0");
+        Course financeCourse5 = new Course("Financial Planning", "FIN205", "Fall 2023", 30, 20, "10:00 AM - 11:30 AM", "MW", "Room 205", "Prof. Edwards", "Core", "4.0");
+        Course financeCourse6 = new Course("Real Estate Finance", "FIN206", "Fall 2023", 40, 25, "1:00 PM - 2:30 PM", "TTh", "Room 206", "Prof. Fisher", "Elective", "4.0");
+
+        List<Course> financeCourses = new ArrayList<>();
+        financeCourses.add(financeCourse1);
+        financeCourses.add(financeCourse2);
+        financeCourses.add(financeCourse3);
+        financeCourses.add(financeCourse4);
+        financeCourses.add(financeCourse5);
+        financeCourses.add(financeCourse6);
+// Create Department 2 (Finance)
+        Department financeDepartment = new Department("Finance", financeCourses);
+
+// Create courses for Department 3 (Entrepreneurship)
+        Course entreCourse1 = new Course("Business Innovation", "ENT201", "Fall 2023", 30, 10, "9:00 AM - 10:30 AM", "MWF", "Room 201", "Prof. Garcia", "Core", "4.0");
+        Course entreCourse2 = new Course("Startup Fundamentals", "ENT202", "Fall 2023", 25, 15, "11:00 AM - 12:30 PM", "TTh", "Room 202", "Prof. Hernandez", "Elective", "4.0");
+        Course entreCourse3 = new Course("Entrepreneurial Finance", "ENT203", "Fall 2023", 35, 20, "2:00 PM - 3:30 PM", "MW", "Room 203", "Prof. Johnson", "Core", "4.0");
+        Course entreCourse4 = new Course("Innovation Strategy", "ENT204", "Fall 2023", 30, 10, "4:00 PM - 5:30 PM", "TTh", "Room 204", "Prof. Lee", "Elective", "4.0");
+        Course entreCourse5 = new Course("Social Entrepreneurship", "ENT205", "Fall 2023", 30, 20, "10:00 AM - 11:30 AM", "MW", "Room 205", "Prof. Martinez", "Core", "4.0");
+        Course entreCourse6 = new Course("Product Development", "ENT206", "Fall 2023", 40, 25, "1:00 PM - 2:30 PM", "TTh", "Room 206", "Prof. Nguyen", "Elective", "4.0");
+
+        List<Course> EntrepreneurshipCourses = new ArrayList<>();
+        EntrepreneurshipCourses.add(entreCourse1);
+        EntrepreneurshipCourses.add(entreCourse2);
+        EntrepreneurshipCourses.add(entreCourse3);
+        EntrepreneurshipCourses.add(entreCourse4);
+        EntrepreneurshipCourses.add(entreCourse5);
+        EntrepreneurshipCourses.add(entreCourse6);
+
+// Create Department 3 (Entrepreneurship)
+        Department entreDepartment = new Department("Entrepreneurship", EntrepreneurshipCourses);
+
+// Create courses for Department 4 (Accounting)
+        Course acctCourse1 = new Course("Financial Accounting", "ACC201", "Fall 2023", 30, 10, "9:00 AM - 10:30 AM", "MWF", "Room 201", "Prof. Oliver", "Core", "4.0");
+        Course acctCourse2 = new Course("Managerial Accounting", "ACC202", "Fall 2023", 25, 15, "11:00 AM - 12:30 PM", "TTh", "Room 202", "Prof. Parker", "Elective", "4.0");
+        Course acctCourse3 = new Course("Auditing and Assurance", "ACC203", "Fall 2023", 35, 20, "2:00 PM - 3:30 PM", "MW", "Room 203", "Prof. Quinn", "Core", "4.0");
+        Course acctCourse4 = new Course("Taxation", "ACC204", "Fall 2023", 30, 10, "4:00 PM - 5:30 PM", "TTh", "Room 204", "Prof. Robinson", "Elective", "4.0");
+        Course acctCourse5 = new Course("Forensic Accounting", "ACC205", "Fall 2023", 30, 20, "10:00 AM - 11:30 AM", "MW", "Room 205", "Prof. Smith", "Core", "4.0");
+        Course acctCourse6 = new Course("Cost Accounting", "ACC206", "Fall 2023", 40, 25, "1:00 PM - 2:30 PM", "TTh", "Room 206", "Prof. Turner", "Elective", "4.0");
+
+        List<Course> AccountingCourses = new ArrayList<>();
+        AccountingCourses.add(acctCourse1);
+        AccountingCourses.add(acctCourse2);
+        AccountingCourses.add(acctCourse3);
+        AccountingCourses.add(acctCourse4);
+        AccountingCourses.add(acctCourse5);
+        AccountingCourses.add(acctCourse6);
+// Create Department 4 (Accounting)
+        Department acctDepartment = new Department("Accounting", AccountingCourses);
+
         // Create the Marketing Department
         Department marketingDepartment = new Department("Marketing Department", marketingDepartmentCourses);
-        Department marketing2Department = new Department("Test Department", marketingDepartmentCourses);
+
         // Create a list of Department objects for the School of Business
         List<Department> businessDepartments = new ArrayList<>();
         businessDepartments.add(marketingDepartment);
-        Log.d("ViewCourse", businessDepartments.get(0).getName());
+        businessDepartments.add(financeDepartment);
+        businessDepartments.add(entreDepartment);
+        businessDepartments.add(acctDepartment);
 
 
-        List<Department> business2Departments = new ArrayList<>();
-        business2Departments.add(marketing2Department);
+
+
         // Create the School of Business
         School schoolOfBusiness = new School("School of Business", businessDepartments);
-        School schoolOfEngineering = new School("School of Engineering", business2Departments);
         // Create a list of School objects and add the School of Business
         schoolArray = new ArrayList<>();
         schoolArray.add(schoolOfBusiness);
-        schoolArray.add(schoolOfEngineering);
+
         // Initialize the spinners
         schoolSpinner = findViewById(R.id.schoolSpinner);
         departmentSpinner = findViewById(R.id.departmentSpinner);
@@ -106,7 +163,7 @@ public class ViewCourse extends AppCompatActivity {
                 // Clear and populate the departmentSpinner with the departments of the selected school
                 departmentAdapter.clear();
                 departmentAdapter.addAll(selectedSchool.getDepartments());
-
+                departmentAdapter.notifyDataSetChanged();
                 // Initialize the courseSpinner with the courses of the first department of the selected school
                 if (!selectedSchool.getDepartments().isEmpty()) {
                     departmentSpinner.setSelection(0); // Select the first department by default
@@ -117,6 +174,7 @@ public class ViewCourse extends AppCompatActivity {
                 } else {
                     // Handle the case where there are no departments
                     courseAdapter.clear();
+                    courseAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -125,6 +183,23 @@ public class ViewCourse extends AppCompatActivity {
                 // Do nothing here
             }
         });
+
+        departmentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            Department selectedDepartment;
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                selectedDepartment = departmentAdapter.getItem(position); // Update the selected department
+                courseAdapter.clear();
+                courseAdapter.addAll(selectedDepartment.getCourses());
+                departmentAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Handle nothing selected
+            }
+        });
+
         addButton = findViewById(R.id.addButton);
         reviewButton = findViewById(R.id.reviewButton);
         courseSection = findViewById(R.id.courseSection);
