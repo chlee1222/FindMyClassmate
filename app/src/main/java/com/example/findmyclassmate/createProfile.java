@@ -22,6 +22,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -36,6 +39,8 @@ public class createProfile extends AppCompatActivity {
     String imageURL;
 
     Uri uri;
+    DatabaseReference mDatabase;
+
 
 
     @Override
@@ -113,8 +118,10 @@ public class createProfile extends AppCompatActivity {
         String type = Type.getText().toString();
 
         profileData profileData = new profileData(name, type, imageURL );
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        FirebaseDatabase.getInstance().getReference("Student").child(name).setValue(profileData).addOnCompleteListener(new OnCompleteListener<Void>() {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("Students").child(user.getEmail()).setValue(profileData).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
