@@ -15,6 +15,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.findmyclassmate.databinding.ActivityMainBinding;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.appcheck.FirebaseAppCheck;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//        FirebaseApp.initializeApp(this);
+//        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+//        FirebaseAppCheckProviderFactory providerFactory = new YourCustomAppCheckProvider.Factory();
+//        firebaseAppCheck.installAppCheckProviderFactory(providerFactory);
+//
+//// Optionally, you can also use the SafetyNetAppCheckProviderFactory for extra protection.
+//        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance());
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
