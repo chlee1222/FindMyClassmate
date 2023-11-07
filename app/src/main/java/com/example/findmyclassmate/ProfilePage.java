@@ -27,21 +27,21 @@ public class ProfilePage extends AppCompatActivity {
         setContentView(R.layout.activity_profile_page);
 
         showUserData();
-        editText.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                passUserData();
-            }
-        });
+////        editText.setOnClickListener(new View.OnClickListener(){
+//
+//            @Override
+//            public void onClick(View view) {
+//                passUserData();
+//            }
+//        });
     }
 
     public void showUserData(){
         Intent intent = getIntent();
 
-        String nameUser = intent.getStringExtra("name");
-
-        profileUsername.setText(nameUser);
+//        String nameUser = intent.getStringExtra("name");
+//
+//        profileUsername.setText(nameUser);
 
 
     }
