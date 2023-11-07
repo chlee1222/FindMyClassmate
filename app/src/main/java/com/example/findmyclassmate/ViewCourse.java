@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -237,6 +238,7 @@ public class ViewCourse extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Implement the logic for adding a course
+                Toast.makeText(ViewCourse.this, "Course Added", Toast.LENGTH_SHORT).show();
             }
         });
 
