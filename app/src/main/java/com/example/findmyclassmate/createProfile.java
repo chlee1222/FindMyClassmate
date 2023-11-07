@@ -73,8 +73,8 @@ public class createProfile extends AppCompatActivity {
             }
         });
 
-        public void saveData(){
-            StorageReference sr = FirebaseStorage.getInstance().getReference().child("Android Images")
-        }
+//        public void saveData(){
+//            StorageReference sr = FirebaseStorage.getInstance().getReference().child("Android Images")
+//        }
     }
 }
