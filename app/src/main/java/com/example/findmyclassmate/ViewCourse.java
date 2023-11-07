@@ -18,6 +18,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.findmyclassmate.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ViewCourse extends AppCompatActivity {
     Spinner schoolSpinner, departmentSpinner, courseSpinner;
@@ -30,12 +34,17 @@ public class ViewCourse extends AppCompatActivity {
     TextView courseLocation, courseInstructor, courseRating, courseCredit, courseDays;
     Button addButton, reviewButton;
     ImageButton profileButton;
+    FirebaseAuth mAuth;
+
+    DatabaseReference mDatabase;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_course);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d(user.getEmail(), "hello1");
 
 
         // Inside the onItemSelected method
@@ -238,6 +247,9 @@ public class ViewCourse extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Implement the logic for adding a course
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+                mDatabase.child("users").child(user.getEmail()).setValue(user);
+
                 Toast.makeText(ViewCourse.this, "Course Added", Toast.LENGTH_SHORT).show();
             }
         });
