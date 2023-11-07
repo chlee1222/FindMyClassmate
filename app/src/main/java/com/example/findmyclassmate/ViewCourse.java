@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class ViewCourse extends AppCompatActivity {
     TextView courseSection, courseSession, courseType, courseRegister, courseTime;
     TextView courseLocation, courseInstructor, courseRating, courseCredit, courseDays;
     Button addButton, reviewButton;
+    ImageButton profileButton;
 
 
     @Override
@@ -201,6 +203,7 @@ public class ViewCourse extends AppCompatActivity {
         });
 
         addButton = findViewById(R.id.addButton);
+        profileButton = findViewById(R.id.ProfileButton);
         reviewButton = findViewById(R.id.reviewButton);
         courseSection = findViewById(R.id.courseSection);
         courseSession = findViewById(R.id.courseSession);
@@ -236,6 +239,20 @@ public class ViewCourse extends AppCompatActivity {
                 // Implement the logic for adding a course
             }
         });
+
+        profileButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent ProfileIntent = new Intent(ViewCourse.this, ProfilePage.class);
+                startActivity(ProfileIntent);
+            }
+
+                                         }
+
+
+        );
+
 
         reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
