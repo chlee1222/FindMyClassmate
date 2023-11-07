@@ -22,6 +22,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.appcheck.AppCheckToken;
+import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -81,7 +83,23 @@ public class createProfile extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                saveData();
+                Intent toViewCourse = new Intent(createProfile.this, ViewCourse.class);
+                startActivity(toViewCourse);
+                FirebaseAppCheck.getInstance().getAppCheckToken(true) // 'true' enforces token refresh
+                        .addOnCompleteListener(new OnCompleteListener<AppCheckToken>() {
+                            @Override
+                            public void onComplete(Task<AppCheckToken> task) {
+                                if (task.isSuccessful()) {
+                                    saveData();
+                                } else {
+                                    // Handle token validation failure.
+                                    Exception exception = task.getException();
+                                    if (exception != null) {
+                                        // Handle the error.
+                                    }
+                                }
+                            }
+                        });
             }
         });
     }
@@ -102,7 +120,7 @@ public class createProfile extends AppCompatActivity {
                 while (!uriTask.isComplete()) ;
                 Uri urlImage = uriTask.getResult();
                 imageURL = urlImage.toString();
-
+                uploadData();
                 dialog.dismiss();
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -120,8 +138,9 @@ public class createProfile extends AppCompatActivity {
         profileData profileData = new profileData(name, type, imageURL );
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("Students").child(user.getEmail()).setValue(profileData).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+
+    FirebaseDatabase.getInstance().getReference().child("User").child(user.getEmail()).setValue(profileData).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){

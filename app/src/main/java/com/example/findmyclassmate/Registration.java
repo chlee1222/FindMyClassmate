@@ -51,6 +51,8 @@ public class Registration extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        FirebaseApp.initializeApp(this);
+        FirebaseAppCheck.getInstance().installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance());
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.idid);
         editTextPassword = findViewById(R.id.passwordpassword);
@@ -88,7 +90,8 @@ public class Registration extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
 //                                    FirebaseAppCheck.getInstance().setTokenAutoRefreshEnabled(true);
 //                                    FirebaseAppCheck.getInstance().installAppCheckProviderFactory(new TestAppCheckProviderFactory());
-
+                                    Intent createProfile = new Intent(Registration.this, createProfile.class);
+                                    startActivity(createProfile);
 
                                 } else {
 //                                     If sign in fails, display a message to the user.

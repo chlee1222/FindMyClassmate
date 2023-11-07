@@ -72,8 +72,8 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 //                                    Intent intent = new Intent(getApplicationContext(), ViewCourse.class);
 //                                    startActivity(intent);
-                                    Intent createProfile = new Intent(Login.this, createProfile.class);
-                                    startActivity(createProfile);
+//                                    Intent createProfile = new Intent(Login.this, createProfile.class);
+//                                    startActivity(createProfile);
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.
