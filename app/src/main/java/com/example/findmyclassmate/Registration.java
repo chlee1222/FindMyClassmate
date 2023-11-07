@@ -2,6 +2,8 @@ package com.example.findmyclassmate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 
 
@@ -20,9 +22,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+
 
 public class Registration extends AppCompatActivity {
 
@@ -43,6 +48,7 @@ public class Registration extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         mAuth = FirebaseAuth.getInstance();
@@ -83,8 +89,7 @@ public class Registration extends AppCompatActivity {
 //                                    FirebaseAppCheck.getInstance().setTokenAutoRefreshEnabled(true);
 //                                    FirebaseAppCheck.getInstance().installAppCheckProviderFactory(new TestAppCheckProviderFactory());
 
-                                    Intent createProfile = new Intent(Registration.this, createProfile.class);
-                                    startActivity(createProfile);
+
                                 } else {
 //                                     If sign in fails, display a message to the user.
                                     Log.w("createUserWithEmail:failure", task.getException());

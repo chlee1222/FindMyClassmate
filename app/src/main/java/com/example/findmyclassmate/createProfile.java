@@ -18,10 +18,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.FindApp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.appcheck.AppCheckToken;
+import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -76,8 +79,26 @@ public class createProfile extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                saveData();
-            }
+
+                    // Verify the user's App Check token.n
+                    FirebaseAppCheck.getInstance().getAppCheckToken(true) // 'true' enforces token refresh
+                            .addOnCompleteListener(new OnCompleteListener<AppCheckToken>() {
+                                @Override
+                                public void onComplete(Task<AppCheckToken> task) {
+                                    if (task.isSuccessful()) {
+                                       saveData();
+                                    } else {
+                                        // Handle token validation failure.
+                                        Exception exception = task.getException();
+                                        if (exception != null) {
+                                            // Handle the error.
+                                        }
+                                    }
+                                }
+                            });
+                }
+
+
         });
     }
 
