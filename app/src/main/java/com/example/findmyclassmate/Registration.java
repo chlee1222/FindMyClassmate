@@ -2,6 +2,11 @@ package com.example.findmyclassmate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+
+
+// ...
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -74,6 +80,11 @@ public class Registration extends AppCompatActivity {
 //                                    Log.d(TAG, "createUserWithEmail:success");
                                     Toast.makeText(Registration.this, "Account Created.",
                                             Toast.LENGTH_SHORT).show();
+//                                    FirebaseAppCheck.getInstance().setTokenAutoRefreshEnabled(true);
+//                                    FirebaseAppCheck.getInstance().installAppCheckProviderFactory(new TestAppCheckProviderFactory());
+
+                                    Intent createProfile = new Intent(Registration.this, createProfile.class);
+                                    startActivity(createProfile);
                                 } else {
 //                                     If sign in fails, display a message to the user.
                                     Log.w("createUserWithEmail:failure", task.getException());
