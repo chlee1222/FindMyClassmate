@@ -4,6 +4,10 @@ public class profileData {
     private String dataName;
     private String dataType;
 
+    public profileData() {
+
+    }
+
     public String getDataName() {
         return dataName;
     }

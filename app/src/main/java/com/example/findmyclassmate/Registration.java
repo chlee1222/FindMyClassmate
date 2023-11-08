@@ -27,6 +27,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Registration extends AppCompatActivity {
@@ -52,7 +54,7 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         FirebaseApp.initializeApp(this);
-        FirebaseAppCheck.getInstance().installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance());
+//        FirebaseAppCheck.getInstance().installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance());
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.idid);
         editTextPassword = findViewById(R.id.passwordpassword);
@@ -88,8 +90,15 @@ public class Registration extends AppCompatActivity {
 //                                    Log.d(TAG, "createUserWithEmail:success");
                                     Toast.makeText(Registration.this, "Account Created.",
                                             Toast.LENGTH_SHORT).show();
-//                                    FirebaseAppCheck.getInstance().setTokenAutoRefreshEnabled(true);
-//                                    FirebaseAppCheck.getInstance().installAppCheckProviderFactory(new TestAppCheckProviderFactory());
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    String uid = user.getUid();
+
+// Create profile
+                                    profileData profile = new profileData();
+
+// Save to datab
+                                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                                    ref.child("users").child(uid).setValue(profile);
                                     Intent createProfile = new Intent(Registration.this, createProfile.class);
                                     startActivity(createProfile);
 

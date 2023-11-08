@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class ViewCourse extends AppCompatActivity {
     Spinner schoolSpinner, departmentSpinner, courseSpinner;
     ArrayAdapter<School> schoolAdapter;
@@ -43,8 +44,11 @@ public class ViewCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_course);
+        getIntent();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        Log.d(user.getEmail(), "hello1");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        Log.d(user.getEmail(), "hello1");
+        String uid = user.getUid();
 
 
         // Inside the onItemSelected method
@@ -246,9 +250,6 @@ public class ViewCourse extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement the logic for adding a course
-                mDatabase = FirebaseDatabase.getInstance().getReference();
-                mDatabase.child("users").child(user.getEmail()).setValue(user);
 
                 Toast.makeText(ViewCourse.this, "Course Added", Toast.LENGTH_SHORT).show();
             }
@@ -256,11 +257,11 @@ public class ViewCourse extends AppCompatActivity {
 
         profileButton.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-                Intent ProfileIntent = new Intent(ViewCourse.this, ProfilePage.class);
-                startActivity(ProfileIntent);
-            }
+                                             @Override
+                                             public void onClick(View v) {
+                                                 Intent ProfileIntent = new Intent(ViewCourse.this, ProfilePage.class);
+                                                 startActivity(ProfileIntent);
+                                             }
 
                                          }
 
@@ -298,3 +299,5 @@ public class ViewCourse extends AppCompatActivity {
         findViewById(R.id.courseDetails).setVisibility(View.VISIBLE);
     }
 }
+
+

@@ -73,7 +73,7 @@ public class createProfile extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent photoPick = new Intent(Intent.ACTION_PICK);
+                Intent photoPick = new Intent(Intent.ACTION_GET_CONTENT);
                 photoPick.setType("image/*");
                 activityResultLauncher.launch(photoPick);
             }
@@ -83,23 +83,37 @@ public class createProfile extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+                profileData profile = new profileData();
+
+// Get UID
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+// Save profile
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                ref.child("users").child(uid).setValue(profile);
+                saveData();
                 Intent toViewCourse = new Intent(createProfile.this, ViewCourse.class);
                 startActivity(toViewCourse);
-                FirebaseAppCheck.getInstance().getAppCheckToken(true) // 'true' enforces token refresh
-                        .addOnCompleteListener(new OnCompleteListener<AppCheckToken>() {
-                            @Override
-                            public void onComplete(Task<AppCheckToken> task) {
-                                if (task.isSuccessful()) {
-                                    saveData();
-                                } else {
-                                    // Handle token validation failure.
-                                    Exception exception = task.getException();
-                                    if (exception != null) {
-                                        // Handle the error.
-                                    }
-                                }
-                            }
-                        });
+
+//                FirebaseAppCheck.getInstance().getAppCheckToken(true) // 'true' enforces token refresh
+//                        .addOnCompleteListener(new OnCompleteListener<AppCheckToken>() {
+//                            @Override
+//                            public void onComplete(Task<AppCheckToken> task) {
+//                                if (task.isSuccessful()) {
+//                                    saveData();
+//                                    Intent toViewCourse = new Intent(createProfile.this, ViewCourse.class);
+//                                    startActivity(toViewCourse);
+//                                } else {
+//                                    // Handle token validation failure.
+//                                    Exception exception = task.getException();
+//                                    if (exception != null) {
+//                                        // Handle the error.
+//                                    }
+//                                }
+//                            }
+//                        });
             }
         });
     }
@@ -137,10 +151,9 @@ public class createProfile extends AppCompatActivity {
 
         profileData profileData = new profileData(name, type, imageURL );
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-
-
-    FirebaseDatabase.getInstance().getReference().child("User").child(user.getEmail()).setValue(profileData).addOnCompleteListener(new OnCompleteListener<Void>() {
+        String uid = user.getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("users").child(uid).setValue(profileData).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
