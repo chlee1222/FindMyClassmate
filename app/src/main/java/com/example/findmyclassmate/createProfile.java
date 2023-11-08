@@ -22,8 +22,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.appcheck.AppCheckToken;
-import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -35,15 +33,9 @@ import com.google.firebase.storage.UploadTask;
 public class createProfile extends AppCompatActivity {
     ImageView uploadImage;
     Button createButton;
-
     EditText Name, Type;
-
     String imageURL;
-
     Uri uri;
-    DatabaseReference mDatabase;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +56,13 @@ public class createProfile extends AppCompatActivity {
                             uri = data.getData();
                             uploadImage.setImageURI(uri);
                         } else {
-                            Toast.makeText(createProfile.this, "No IMAGE SELECTED", Toast.LENGTH_SHORT);
+                            Toast.makeText(createProfile.this, "No IMAGE SELECTED", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
         );
-        uploadImage.setOnClickListener(new View.OnClickListener() {
 
+        uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent photoPick = new Intent(Intent.ACTION_GET_CONTENT);
@@ -80,93 +72,77 @@ public class createProfile extends AppCompatActivity {
         });
 
         createButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-
-                profileData profile = new profileData();
-
-// Get UID
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid = user.getUid();
+                if (user != null) {
+                    String uid = user.getUid();
+                    String name = Name.getText().toString();
+                    String type = Type.getText().toString();
 
-// Save profile
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                ref.child("users").child(uid).setValue(profile);
-                saveData();
-                Intent toViewCourse = new Intent(createProfile.this, ViewCourse.class);
-                startActivity(toViewCourse);
-
-//                FirebaseAppCheck.getInstance().getAppCheckToken(true) // 'true' enforces token refresh
-//                        .addOnCompleteListener(new OnCompleteListener<AppCheckToken>() {
-//                            @Override
-//                            public void onComplete(Task<AppCheckToken> task) {
-//                                if (task.isSuccessful()) {
-//                                    saveData();
-//                                    Intent toViewCourse = new Intent(createProfile.this, ViewCourse.class);
-//                                    startActivity(toViewCourse);
-//                                } else {
-//                                    // Handle token validation failure.
-//                                    Exception exception = task.getException();
-//                                    if (exception != null) {
-//                                        // Handle the error.
-//                                    }
-//                                }
-//                            }
-//                        });
+                    if (!name.isEmpty() && !type.isEmpty() && uri != null) {
+                        saveData(uid, name, type);
+                    } else {
+                        Toast.makeText(createProfile.this, "Please fill out all fields and select an image.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(createProfile.this, "User not authenticated. Please sign in.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
-    public void saveData() {
-
+    private void saveData(String uid, String name, String type) {
         StorageReference sr = FirebaseStorage.getInstance().getReference().child("Android Images").child(uri.getLastPathSegment());
-
         AlertDialog.Builder builder = new AlertDialog.Builder(createProfile.this);
         builder.setCancelable(false);
-//            builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
         dialog.show();
+
         sr.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                while (!uriTask.isComplete()) ;
-                Uri urlImage = uriTask.getResult();
-                imageURL = urlImage.toString();
-                uploadData();
-                dialog.dismiss();
+                uriTask.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri urlImage) {
+                        imageURL = urlImage.toString();
+                        uploadData(uid, name, type);
+                        dialog.dismiss();
+                    }
+                });
             }
         }).addOnFailureListener(new OnFailureListener() {
-
             @Override
             public void onFailure(@NonNull Exception e) {
                 dialog.dismiss();
+                Toast.makeText(createProfile.this, "Image upload failed.", Toast.LENGTH_SHORT).show();
             }
         });
     }
-    public void uploadData(){
-        String name = Name.getText().toString();
-        String type = Type.getText().toString();
 
-        profileData profileData = new profileData(name, type, imageURL );
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+    private void uploadData(String uid, String name, String type) {
+        profileData profileData = new profileData(name, type, imageURL);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref.child("users").child(uid).setValue(profileData).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(createProfile.this, "Saved",Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(createProfile.this, e.getMessage().toString(),Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        ref.child("users").child(uid).setValue(profileData)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(createProfile.this, "Profile created and saved", Toast.LENGTH_SHORT).show();
+                            Intent toViewCourse = new Intent(createProfile.this, ViewCourse.class);
+                            startActivity(toViewCourse);
+                            finish();
+                        } else {
+                            Toast.makeText(createProfile.this, "Failed to save profile data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(createProfile.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

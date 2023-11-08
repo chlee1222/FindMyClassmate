@@ -1,5 +1,6 @@
 package com.example.findmyclassmate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -18,6 +19,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.findmyclassmate.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -250,9 +253,40 @@ public class ViewCourse extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Course selectedCourse = (Course) courseSpinner.getSelectedItem();
+                if (selectedCourse != null) {
+                    // Get the selected course's information
+                    String courseName = selectedCourse.getcName();       // Course name
+                    String courseCode = selectedCourse.getSection();    // Course code
+                    String courseInstructor = selectedCourse.getProfessor(); // Instructor
+                    String courseSession = selectedCourse.getSession();   // Session
+                    int courseSize = selectedCourse.getSize();           // Size
+                    int courseRegistered = selectedCourse.getRegistered(); // Registered
+                    String courseTime = selectedCourse.getTime();         // Time
+                    String courseDays = selectedCourse.getDays();         // Days
+                    String courseLocation = selectedCourse.getLocation();   // Location
+                    String courseType = selectedCourse.getType();         // Type
+                    String courseCredit = selectedCourse.getCredit();     // Credit
 
-                Toast.makeText(ViewCourse.this, "Course Added", Toast.LENGTH_SHORT).show();
+                    // Create a reference to the user's courses node
+                    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    DatabaseReference userCoursesRef = FirebaseDatabase.getInstance().getReference("users").child(uid).child("courses");
+
+                    // Create a new Course object to save in the database
+                    Course userCourse = new Course(courseName, courseCode, courseSession, courseSize, courseRegistered, courseTime, courseDays, courseLocation, courseInstructor, courseType, courseCredit);
+
+                    // Push the course to the user's courses node
+                    userCoursesRef.push().setValue(userCourse).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(ViewCourse.this, "Course Added", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
             }
+
         });
 
         profileButton.setOnClickListener(new View.OnClickListener(){
