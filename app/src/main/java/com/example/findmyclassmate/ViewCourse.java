@@ -273,7 +273,8 @@ public class ViewCourse extends AppCompatActivity {
                     DatabaseReference userCoursesRef = FirebaseDatabase.getInstance().getReference("users").child(uid).child("courses");
 
                     // Create a new Course object to save in the database
-                    Course userCourse = new Course(courseName, courseCode, courseSession, courseSize, courseRegistered, courseTime, courseDays, courseLocation, courseInstructor, courseType, courseCredit);
+                    RegisteredCourse userCourse = new RegisteredCourse(courseName, courseCredit, courseDays, courseLocation, courseInstructor,
+                    courseRegistered, courseCode, courseSession, courseSize, courseTime, courseType);
 
                     // Push the course to the user's courses node
                     userCoursesRef.push().setValue(userCourse).addOnCompleteListener(new OnCompleteListener<Void>() {

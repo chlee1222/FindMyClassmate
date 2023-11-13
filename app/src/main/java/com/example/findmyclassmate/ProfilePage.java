@@ -3,11 +3,17 @@ package com.example.findmyclassmate;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.content.Intent;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,6 +34,9 @@ public class ProfilePage extends AppCompatActivity {
 
     TextView userType;
 
+    LinearLayout registeredCoursesLayout;
+    String userId;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,20 +49,84 @@ public class ProfilePage extends AppCompatActivity {
         pencilIcon = findViewById(R.id.pencilIcon);
         editIcon = findViewById(R.id.editIcon);
         userType = findViewById(R.id.userRoleText);
-
+        registeredCoursesLayout = findViewById(R.id.registeredCoursesLayout);
 
         // Show user data
         showUserData();
 
-        // Set a click listener for the edit icon
+        // Retrieve the user's registered courses
+        DatabaseReference coursesRef = FirebaseDatabase.getInstance().getReference("courses");
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Log.d("ProfilePage", "Before coursesRef.child(userId).addListenerForSingleValueEvent");
+        loadRegisteredCourses();
+        Log.d("UserID", userId);
         editIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Open the edit profile page
-//                startActivity(new Intent(ProfilePage.this, EditProfilePage.class));
+//            startActivity(new Intent(ProfilePage.this, EditProfilePage.class));
             }
         });
     }
+
+
+    public void loadRegisteredCourses() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+
+        if (user != null) {
+            String userId = user.getUid();
+            Log.d("ProfilePage", "loadRegisteredCourses: User ID: " + userId);
+
+            // Assuming that the user's registered courses are stored under "courses" in the user's node.
+            Query query = reference.child(userId).child("courses");
+
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Log.d("ProfilePage", "onDataChange: Entire Snapshot: " + snapshot);
+
+                    if (snapshot.exists()) {
+                        // Loop through each registered course under the "courses" node
+                        for (DataSnapshot courseSnapshot : snapshot.getChildren()) {
+                            // Assuming you have a "Course" class to represent the course data
+                            RegisteredCourse registeredCourse = courseSnapshot.getValue(RegisteredCourse.class);
+                            Log.d("regis", "onDataChange: " + registeredCourse.getcName());
+                            if (registeredCourse != null) {
+
+                            // Inflate the course item layout for each registered course
+                            View courseItemView = LayoutInflater.from(ProfilePage.this).inflate(R.layout.registered_course_item, registeredCoursesLayout, false);
+
+                            // Find the TextViews in the inflated layout
+                            TextView courseNameTextView = courseItemView.findViewById(R.id.courseNameTextView);
+                            TextView courseSectionTextView = courseItemView.findViewById(R.id.courseSectionTextView);
+                            TextView courseTimeTextView = courseItemView.findViewById(R.id.courseTimeTextView);
+
+                            // Set the values of the TextViews with registered course details
+                            courseNameTextView.setText(registeredCourse.getcName());
+                            courseSectionTextView.setText("Section: " + registeredCourse.getSection());
+                            courseTimeTextView.setText("Time: " + registeredCourse.getTime());
+
+                            // Add the inflated layout to the coursesLayout
+                            registeredCoursesLayout.addView(courseItemView);
+                            }
+                        }
+                    } else {
+                        // Handle the case where the user's registered courses data doesn't exist in the database
+                        Log.d("ProfilePage", "onDataChange: No registered courses found for the user");
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle errors
+                    Log.e("ProfilePage", "loadRegisteredCourses onCancelled: " + error.getMessage());
+                }
+            });
+        }
+    }
+
+
 
     public void showUserData() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -94,5 +167,4 @@ public class ProfilePage extends AppCompatActivity {
             // Handle the case where no user is signed in or not yet authenticated
         }
     }
-
 }

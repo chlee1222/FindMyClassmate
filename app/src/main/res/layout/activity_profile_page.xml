@@ -88,64 +88,34 @@
         android:src="@drawable/edit" />
 
 
+    <!-- Add a LinearLayout to hold registered courses -->
 
     <Button
         android:id="@+id/backToViewCourseButton"
-        android:layout_width="225dp"
+        android:layout_width="235dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/userRoleText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="192dp"
-        android:layout_marginTop="237dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginEnd="209dp"
+        android:layout_marginBottom="366dp"
         android:onClick="backToViewCourseClick"
         android:text="Back to ViewCourse" />
 
-
-
     <LinearLayout
+        android:id="@+id/registeredCoursesLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/userRoleText"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <!-- Add this layout as an item in your ProfilePage's main layout -->
-        <!-- This layout will be inflated dynamically for each registered course -->
-
-        <TextView
-            android:id="@+id/courseNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Course Name"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/courseSectionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Section: "
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/courseTimeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Time: "
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <!-- Add more TextViews for other course details as needed -->
-
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="-25dp"
+        android:background="#DDDDDD"
+        android:orientation="vertical">
+        <!-- Registered courses will be added dynamically here -->
     </LinearLayout>
 
 
