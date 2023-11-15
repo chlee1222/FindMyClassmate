@@ -36,6 +36,8 @@ public class ProfilePage extends AppCompatActivity {
 
     LinearLayout registeredCoursesLayout;
     String userId;
+
+    View logOut;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class ProfilePage extends AppCompatActivity {
         editIcon = findViewById(R.id.editIcon);
         userType = findViewById(R.id.userRoleText);
         registeredCoursesLayout = findViewById(R.id.registeredCoursesLayout);
+        logOut = findViewById(R.id.logOut);
 
         // Show user data
         showUserData();
@@ -67,6 +70,16 @@ public class ProfilePage extends AppCompatActivity {
 //            startActivity(new Intent(ProfilePage.this, EditProfilePage.class));
             }
         });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(ProfilePage.this, MainActivity.class));
+            }
+        });
+
+
     }
 
 
