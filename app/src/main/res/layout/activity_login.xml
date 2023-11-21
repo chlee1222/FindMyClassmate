@@ -51,7 +51,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/two"
+        android:id="@+id/two2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -61,11 +61,11 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/three"
+        android:id="@+id/three3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="password"
-        app:layout_constraintTop_toBottomOf="@+id/two"
+        app:layout_constraintTop_toBottomOf="@+id/two2"
 
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="343dp"
@@ -79,7 +79,7 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="400dp"
-        app:layout_constraintTop_toBottomOf="@+id/three"
+        app:layout_constraintTop_toBottomOf="@+id/three3"
         />
 
 
