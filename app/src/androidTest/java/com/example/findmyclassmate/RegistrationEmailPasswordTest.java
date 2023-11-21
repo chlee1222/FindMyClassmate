@@ -1,11 +1,10 @@
 package com.example.findmyclassmate;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class RegistrationLoginLogoutTests {
+public class RegistrationEmailPasswordTest {
 
     // Hypothetical method for testing registration logic
     private boolean processRegistration(String email, String password) {
