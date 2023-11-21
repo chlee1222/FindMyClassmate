@@ -333,6 +333,10 @@ public class ViewCourse extends AppCompatActivity {
     private void showCourseDetails() {
         findViewById(R.id.courseDetails).setVisibility(View.VISIBLE);
     }
+
+    public DepartmentArrayAdapter getDepartmentArrayAdapter() {
+        return departmentAdapter;
+    }
 }
 
 

@@ -45,5 +45,12 @@ public class DepartmentArrayAdapter extends ArrayAdapter<Department> {
         }
         return convertView;
     }
+
+    public void setData(List<Department> departments) {
+        // Update the adapter's data
+        clear();
+        addAll(departments);
+        notifyDataSetChanged();
+    }
 }
 
