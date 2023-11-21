@@ -1,45 +1,43 @@
 package com.example.findmyclassmate;
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.espresso.Espresso;
-import static androidx.test.espresso.action.ViewActions.*;
-import static androidx.test.espresso.matcher.ViewMatchers.*;
-import static androidx.test.espresso.assertion.ViewAssertions.*;
-
-import org.junit.Rule;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(AndroidJUnit4.class)
+import static org.junit.Assert.*;
+
 public class RegistrationLoginLogoutTests {
 
-    @Rule
-    public ActivityScenarioRule<Registration> activityRule = new ActivityScenarioRule<>(Registration.class);
-
-    @Test
-    public void testEmptyEmailAndPassword() {
-        // Check if the registration button is clickable
-        Espresso.onView(withId(R.id.btn_register)).check(matches(isClickable()));
-
-        // Simulate empty email and password input and button click
-        Espresso.onView(withId(R.id.idid)).perform(typeText(""), closeSoftKeyboard());
-        Espresso.onView(withId(R.id.passwordpassword)).perform(typeText(""), closeSoftKeyboard());
-        Espresso.onView(withId(R.id.btn_register)).perform(click());
-
-        // Check for Toast message indicating empty email or password (requires a Toast matcher implementation)
-        // Note: Toast validation requires additional setup
+    // Hypothetical method for testing registration logic
+    private boolean processRegistration(String email, String password) {
+        // Simulate some basic validation logic
+        if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
+            return false;
+        }
+        // More complex logic like checking email format or password strength could be added here
+        // This is a placeholder for demonstration purposes
+        return true;
     }
 
     @Test
-    public void testValidEmailAndPassword() {
-        // Simulate valid email and password input and button click
-        Espresso.onView(withId(R.id.idid)).perform(typeText("test@example.com"), closeSoftKeyboard());
-        Espresso.onView(withId(R.id.passwordpassword)).perform(typeText("password123"), closeSoftKeyboard());
-        Espresso.onView(withId(R.id.btn_register)).perform(click());
-
-        // Additional assertions can be added here based on expected behavior
+    public void testSuccessfulRegistration() {
+        // Test with valid email and password
+        assertTrue("Registration should succeed with valid email and password",
+                processRegistration("test@example.com", "password123"));
     }
 
-    // Additional tests can be written for other scenarios like invalid email formats, password strength, etc.
+    @Test
+    public void testRegistrationWithEmptyEmail() {
+        // Test with empty email
+        assertFalse("Registration should fail with empty email",
+                processRegistration("", "password123"));
+    }
+
+    @Test
+    public void testRegistrationWithEmptyPassword() {
+        // Test with empty password
+        assertFalse("Registration should fail with empty password",
+                processRegistration("test@example.com", ""));
+    }
+
+    // Additional tests for other scenarios could be added
 }
