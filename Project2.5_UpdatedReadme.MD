@@ -5,7 +5,7 @@ Team members: Charles Lee(clee2981@usc.edu), Vincent Li Ruan(liruan@usc.edu), Je
 
 
 
-1. The Emulator device we are using is Pixel 2, API 24. Nougat 24 (Android 7.0) | arm64
+1. The Emulator device we are using is Pixel 4, API 34. Nougat 24 (Android 7.0) | arm64
 2. Username: hi3@gmail.com  Password: hello123.
 3. We are using firebase to store our User profile information, and also user login/logout authentication information. In order to display our user information in our profile page, we are fetching from the firebase using their API. 
 * Some issues that are possible:
@@ -35,3 +35,28 @@ We are able to showcase the details of each course, the section, type, Registere
 
 
 We are able to add course reviews for each course.
+
+
+------------------------------------------------
+
+For 2.5 SPRINT:
+
+
+We were able to implement our Logout functionality.
+
+
+We were able to implement the functionality for users to access their profile in chat and other pages.
+
+
+We were able to fully test our functionality using the blackbox / whitebox tests that we written in 2.4.
+
+
+
+
+
+
+
+
+
+
+
